@@ -22,7 +22,7 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Christians Against Poverty",
+  title: "Web Launch",
   description: "Next JS app demo",
 };
 
