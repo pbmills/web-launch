@@ -1,5 +1,7 @@
-import type { Metadata } from "next";
 import localFont from "next/font/local";
+import type { Metadata } from "next";
+import Image from "next/image";
+import Login from "./login/page";
 import "./globals.css";
 
 const geistSans = localFont({
@@ -28,7 +30,30 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <div className="relative overflow-hidden">
+          {/* Background */}
+          <div className="fixed inset-0 w-full h-full bg-white dark:bg-black pointer-events-none">
+            <Image
+              className="absolute inset-0 w-full h-full object-cover animate-spin [animation-duration:60s] z-0"
+              src="/rotating.svg"
+              alt="Next.js logo"
+              fill
+              priority
+            />
+            <div className="min-h-screen w-full backdrop-blur-3xl dark:bg-black/80 absolute inset-0 z-0">
+              <Image
+                className="w-full h-full absolute inset-0 object-cover object-center -translate-y-1/4 translate-x-[10%] scale-[2] max-md:hidden"
+                src="/decoration.svg"
+                alt="Next.js logo"
+                fill
+                priority
+              />        
+            </div>
+          </div>
+          <div className="min-h-screen relative z-0">
+            {children}
+          </div>
+        </div>
       </body>
     </html>
   );
