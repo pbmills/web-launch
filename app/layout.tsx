@@ -1,4 +1,3 @@
-import localFont from "next/font/local";
 import type { Metadata } from "next";
 import Image from "next/image";
 import "./globals.css";
@@ -10,19 +9,8 @@ import {
   UserButton,
 } from "@clerk/nextjs";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
-
 export const metadata: Metadata = {
-  title: "Web Launch",
+  title: "Web launch",
   description: "Next JS app demo",
 };
 
@@ -34,9 +22,7 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en">
-        <body
-          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-        >
+        <body className={`antialiased`}>
           <div className="relative overflow-hidden">
             {/* Background */}
             <div className="fixed inset-0 w-full h-full bg-white dark:bg-black pointer-events-none">
@@ -57,19 +43,29 @@ export default function RootLayout({
                 />
               </div>
             </div>
-            {/* Header */}
-            <header className="w-full flex justify-between items-center relative z-0 py-3 px-8">
-              <h1 className="text-4xl font-semibold px-4 py-2 rounded-full backdrop-blur-sm bg-white/20">
-                Web Launch 
-              </h1>
-              <div className="p-2 pt-1 bg-white/20 backdrop-blur-sm text-xl rounded-full">
-                <UserButton showName />
-              </div>
-            </header>
+            <SignedIn>
+              {/* Header */}
+              <header className="w-full flex justify-between items-center relative z-0 py-3 px-8">
+                <h1 className="text-4xl font-semibold px-4 py-2 rounded-full backdrop-blur-sm bg-white/40 dark:bg-black/20">
+                  Web Launch
+                </h1>
+                <div className="p-2 pt-1 bg-white/40 dark:bg-black/20 backdrop-blur-sm text-xl rounded-full">
+                  <UserButton showName />
+                </div>
+              </header>
+            </SignedIn>
             {/* Content */}
             <SignedOut>
               <div className="min-h-screen grid place-items-center w-full relative z-0">
-                <SignIn routing="hash" />
+                <SignIn
+                  routing="hash"
+                  appearance={{
+                    elements: {
+                      formButtonPrimary:
+                        "bg-purple-400 hover:bg-purple-500 text-white !ring-0",
+                    },
+                  }}
+                />
               </div>
             </SignedOut>
             <SignedIn>
