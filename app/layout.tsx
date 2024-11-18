@@ -10,7 +10,7 @@ import {
 } from "@clerk/nextjs";
 
 export const metadata: Metadata = {
-  title: "Web launch",
+  title: "Christians Against Poverty",
   description: "Next JS app demo",
 };
 
@@ -47,7 +47,7 @@ export default function RootLayout({
               {/* Header */}
               <header className="w-full flex justify-between items-center relative z-0 py-3 px-8">
                 <h1 className="text-4xl font-semibold px-4 py-2 rounded-full backdrop-blur-sm bg-white/40 dark:bg-black/20">
-                  Web Launch
+                  CAP UK
                 </h1>
                 <div className="p-2 pt-1 bg-white/40 dark:bg-black/20 backdrop-blur-sm text-xl rounded-full">
                   <UserButton showName />
