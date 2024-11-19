@@ -10,7 +10,7 @@ import {
 } from "@clerk/nextjs";
 
 export const metadata: Metadata = {
-  title: "Web launch",
+  title: "Web Launch",
   description: "Next JS app demo",
 };
 
@@ -22,7 +22,7 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en">
-        <body className={`antialiased`}>
+        <body className="antialiased font-lato text-black dark:text-white">
           <div className="relative overflow-hidden">
             {/* Background */}
             <div className="fixed inset-0 w-full h-full bg-white dark:bg-black pointer-events-none">
@@ -33,7 +33,7 @@ export default function RootLayout({
                 fill
                 priority
               />
-              <div className="min-h-screen w-full backdrop-blur-3xl dark:bg-black/80 absolute inset-0 z-0">
+              <div className="min-h-screen w-full backdrop-blur-3xl bg-black/10 absolute inset-0 z-0">
                 <Image
                   className="w-full h-full absolute inset-0 object-cover object-center -translate-y-1/4 translate-x-[10%] scale-[2] max-md:hidden transition-transform"
                   src="/decoration.svg"
@@ -46,7 +46,7 @@ export default function RootLayout({
             <SignedIn>
               {/* Header */}
               <header className="w-full flex justify-between items-center relative z-0 py-3 px-8">
-                <h1 className="text-4xl font-semibold px-4 py-2 rounded-full backdrop-blur-sm bg-white/40 dark:bg-black/20">
+                <h1 className="text-2xl px-4 py-2 rounded-full backdrop-blur-sm bg-white/40 dark:bg-black/20">
                   Web Launch
                 </h1>
                 <div className="p-2 pt-1 bg-white/40 dark:bg-black/20 backdrop-blur-sm text-xl rounded-full">
