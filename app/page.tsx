@@ -5,10 +5,11 @@ import { useUser } from "@clerk/nextjs";
 
 export default function Home() {
   const { user } = useUser();
-  const [role, setRole] = useState<any>("");
+  const [role, setRole] = useState<string>("");
 
   useEffect(() => {
-    setRole(user?.publicMetadata.role || "member");
+    console.log(user)
+    setRole(user?.publicMetadata.role as string || "member");
   }, [user]);
 
   return (
