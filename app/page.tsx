@@ -3,15 +3,12 @@
 import { useEffect, useState } from "react";
 import { useUser } from "@clerk/nextjs";
 
-type Role = "admin" | "member";
-
 export default function Home() {
   const { user } = useUser();
-  const [role, setRole] = useState<Role>("member"); // Default to "member"
+  const [role, setRole] = useState<any>("");
 
   useEffect(() => {
-    const userRole = user?.publicMetadata.role as Role; // Type assertion
-    setRole(userRole || "member");
+    setRole(user?.publicMetadata.role || "member");
   }, [user]);
 
   return (
