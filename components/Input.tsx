@@ -7,12 +7,12 @@ interface Props {
    label: string,
    type?: string,
    placeholder?: string,
-   setValue: any;
+   setValue: React.Dispatch<React.SetStateAction<string>>;
 }
 
 export default function Input({ className = '', id, name, label, type = 'text', placeholder = '', setValue }: Props) {
    
-   const handleSubmit = (event: any) => {
+   const handleSubmit = (event: React.FormEvent) => {
       event.preventDefault();
       const inputElement = document.getElementById(id) as HTMLInputElement;
       if (inputElement) {
