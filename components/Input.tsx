@@ -7,7 +7,7 @@ interface Props {
    label: string,
    type?: string,
    placeholder?: string,
-   setValue: React.Dispatch<React.SetStateAction<string>>;
+   setValue: (value: string) => void;
 }
 
 export default function Input({ className = '', id, name, label, type = 'text', placeholder = '', setValue }: Props) {

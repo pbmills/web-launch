@@ -1,11 +1,10 @@
-import { SetStateAction } from "react";
 import Input from "./Input";
 
 interface Props {
    classroom: string;
    teacher: boolean;
    notes: string[];
-   setNote: React.Dispatch<SetStateAction<string>>;
+   setNote: (value: string) => void;
 }
 
 export default function Tasks({ classroom = '', teacher, notes = [], setNote }: Props) {
@@ -21,7 +20,7 @@ export default function Tasks({ classroom = '', teacher, notes = [], setNote }: 
                   id="note" 
                   name="note" 
                   label="Add a note" 
-                  placeholder="Some note..." 
+                  placeholder="Some note..."
                   setValue={setNote}
                />
             }
