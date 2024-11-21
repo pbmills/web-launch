@@ -8,6 +8,7 @@ import {
   SignedOut,
   UserButton,
 } from "@clerk/nextjs";
+import { ConvexClientProvider } from "./ConvexClientProvider";
 
 export const metadata: Metadata = {
   title: "Web Launch",
@@ -21,9 +22,9 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider>
-      <html lang="en">
-        <body className="antialiased font-lato text-black dark:text-white">
-          <div className="relative overflow-hidden">
+      <ConvexClientProvider>
+        <html lang="en">
+          <body className="antialiased font-lato text-black dark:text-white">
             {/* Background */}
             <div className="fixed inset-0 w-full h-full bg-white dark:bg-black pointer-events-none">
               <Image
@@ -43,9 +44,9 @@ export default function RootLayout({
                 />
               </div>
             </div>
+            {/* Header */}
             <SignedIn>
-              {/* Header */}
-              <header className="w-full flex justify-between items-center relative z-0 py-3 px-8">
+              <header className="w-full flex justify-between items-center z-0 py-3 px-8 sticky top-0 inset-x-0">
                 <h1 className="text-2xl px-4 py-2 rounded-full backdrop-blur-sm bg-white/40 dark:bg-black/20">
                   Web Launch
                 </h1>
@@ -68,14 +69,15 @@ export default function RootLayout({
                 />
               </div>
             </SignedOut>
+            {/* Children */}
             <SignedIn>
               <div className="min-h-[calc(100vh-5rem)] relative z-0">
                 {children}
               </div>
             </SignedIn>
-          </div>
-        </body>
-      </html>
+          </body>
+        </html>
+      </ConvexClientProvider>
     </ClerkProvider>
   );
 }
